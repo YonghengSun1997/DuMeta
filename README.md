@@ -42,10 +42,11 @@ The code is based on nnUNetv1 (https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1)
 If you find this project useful for your research, please consider citing:
 
 ```bibtex
-@article{sun2023dual,
-  title={Dual Meta-Learning with Longitudinally Generalized Regularization for One-Shot Brain Tissue Segmentation Across the Human Lifespan},
-  author={Sun, Yongheng and Wang, Fan and Shu, Jun and Wang, Haifeng and Meng, Li Wang and Lian, Chunfeng and others},
-  journal={arXiv preprint arXiv:2308.06774},
+@inproceedings{sun2023dual,
+  title={Dual Meta-Learning with Longitudinally Consistent Regularization for One-Shot Brain Tissue Segmentation Across the Human Lifespan},
+  author={Sun, Yongheng and Wang, Fan and Shu, Jun and Wang, Haifeng and Wang, Li and Meng, Deyu and Lian, Chunfeng},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={21118--21128},
   year={2023}
 }
 ```
