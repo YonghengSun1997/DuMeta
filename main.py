@@ -281,7 +281,6 @@ def train_net(args):
 
 
                 ###############################Support set#######################################################
-                orien_oride = network.state_dict()
                 for i, param in enumerate(network.parameters()):
                     # print(i)
                     if (i > layer2) or (layer1 < i < 40):  # 冻结encoder
@@ -292,7 +291,7 @@ def train_net(args):
                 with autocast():
                     output, _ = network(data)
                     l_decoder1 = loss(output, target)
-
+                orien_oride = network.state_dict()
                 # l_decoder1.backward()
                 amp_grad_scaler.scale(l_decoder1).backward()
                 amp_grad_scaler.unscale_(optimizer_decoder1)
