@@ -43,7 +43,7 @@ import logging
 # import models
 # import losses
 import time
-
+from copy import deepcopy
 
 def cossim(tensor_1, tensor_2):
     normalized_tensor_1 = tensor_1 / tensor_1.norm(dim=-1, keepdim=True)
@@ -291,7 +291,7 @@ def train_net(args):
                 with autocast():
                     output, _ = network(data)
                     l_decoder1 = loss(output, target)
-                orien_oride = network.state_dict()
+                orien_oride = deepcopy(network.state_dict())
                 # l_decoder1.backward()
                 amp_grad_scaler.scale(l_decoder1).backward()
                 amp_grad_scaler.unscale_(optimizer_decoder1)
@@ -396,7 +396,7 @@ def train_net(args):
                 optimizer_decoder2.zero_grad()
                 l_decoder2.backward()
 
-                newen_newde = network.state_dict()
+                newen_newde = deepcopy(network.state_dict())
                 for i in range(98):
                     if (i > layer2) or (layer1 < i < 40):  # 筛选decoder
                         newen_newde[layers[i]] = orien_oride[layers[i]]
