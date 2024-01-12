@@ -42,7 +42,7 @@ python main.py
 4. change nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
 def initialize_network(self):\
        num_input_channels = 1\
-    base_num_features = 32\
+        base_num_features = 32\
     num_classes = 4\
     conv_per_stage = 2\
     conv_op = nn.Conv3d\
