@@ -64,6 +64,7 @@ def initialize_network(self):
     network.inference_apply_nonlin = softmax_helper
     network.load_state_dict(torch.load('./checkpoint/checkpoints.pth'))
 5. finetune your model using below command:
+   
    nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD (additional options)
 
 
