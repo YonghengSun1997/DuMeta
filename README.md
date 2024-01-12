@@ -67,8 +67,8 @@ def initialize_network(self):\
     &emsp; network.inference_apply_nonlin = softmax_helper\
     &emsp; network.load_state_dict(torch.load('./checkpoint/checkpoints.pth'))\
               &emsp;     for i, param in enumerate(network.parameters()):\
-               &emsp;&emsp;     if (i > 87) or (i < 40):  # 前面一些参数冻结\
-                     &emsp;&emsp;&emsp;   param.requires_grad = True
+               &emsp;&emsp;     if i >= 40 and i <= 87:  # 前面一些参数冻结\
+                     &emsp;&emsp;&emsp;   param.requires_grad = False
 6. finetune your model using below command:\
    nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD (additional options)
 
