@@ -37,9 +37,11 @@ python main.py
 
 ## Or you can load our pretrained model and finutune on your own data.
 1. You can download the pretrained model via https://drive.google.com/file/d/1t6nCM376LBVHXjktr52k8KeDwuZZTLy2/view?usp=drive_link.
-2. Process your data as required by nnUNetv1using below command:\
-   nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
-4. change nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
+2. Process your data as required by nnUNetv1 using below command:\
+   &emsp;nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
+3. then change nnUNetPlansv2.1_plans_3D.pkl to change patch size of input:\
+    &emsp python change_plans.py
+4. Replace nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
 def initialize_network(self):\
     &emsp; num_input_channels = 1\
     &emsp; base_num_features = 32\
@@ -64,6 +66,9 @@ def initialize_network(self):\
         &emsp; &emsp; network.cuda()\
     &emsp; network.inference_apply_nonlin = softmax_helper\
     &emsp; network.load_state_dict(torch.load('./checkpoint/checkpoints.pth'))\
+              &emsp;     for i, param in enumerate(network.parameters()):\
+               &emsp;&emsp;     if (i > 87) or (i < 40):  # 前面一些参数冻结\
+                     &emsp;&emsp;&emsp;   param.requires_grad = True\
 6. finetune your model using below command:\
    nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD (additional options)
 
