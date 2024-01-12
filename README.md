@@ -41,7 +41,7 @@ python main.py
    nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
 4. change nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
 def initialize_network(self):\
-       num_input_channels = 1\
+       //num_input_channels = 1\
         base_num_features = 32\
     num_classes = 4\
     conv_per_stage = 2\
