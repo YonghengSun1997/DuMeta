@@ -8,8 +8,8 @@
 # Author     ：Yongheng Sun
 """
 import pickle
-PATH = r'C:\nnUNet\nnUNet_preprocessed\576\nnUNetPlansv2.1_plans_3D.pkl'
-your_PATH = r'C:\nnUNet\nnUNet_preprocessed\572\nnUNetPlansv2.1_plans_3D.pkl'
+PATH = r'.\nnUNetPlansv2.1_plans_3D_IBIS6M.pkl'
+your_PATH = r''
 
 f = open(your_PATH,'rb')
 your_data = pickle.load(f)
