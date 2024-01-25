@@ -15,11 +15,13 @@ This repository is for our ICCV 2023 paper '[Dual Meta-Learning with Longitudina
 ### 1.1 Install nnUNetv1.
 
 ### 1.2 Process your data as required by nnUNetv1.
+```
 nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
-
+```
 ### 1.3 Run nnUNetv1 baseline on your data. Save your Generic_UNet, DataLoader3D, and get_moreDA_augmentation hyperparameters.
+```
 nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD (additional options)
-
+```
 ### 1.4 Replace your nnUNet folder with this repository (I rewrote the files in the folders of \nnunet\network_architecture and \nnunet\training\network_training).
 
 ### 1.5 Import Generic_UNet, DataLoader3D, and get_moreDA_augmentation with hyperparameters in step 1.3, as in main.py.
@@ -38,10 +40,12 @@ python main.py
 ## B. Or you can load our pretrained model and finutune on your own data.
 1. You can download the pretrained model via https://drive.google.com/file/d/1t6nCM376LBVHXjktr52k8KeDwuZZTLy2/view?usp=drive_link.
 2. Process your data as required by nnUNetv1 using below command:\
-   &emsp;nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
-3. then change nnUNetPlansv2.1_plans_3D.pkl to change patch size of input:\
+   ```
+   nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
+   ```
+4. then change nnUNetPlansv2.1_plans_3D.pkl to change patch size of input:\
     &emsp python change_plans.py
-4. Replace nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
+5. Replace nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
 def initialize_network(self):\
     &emsp; num_input_channels = 1\
     &emsp; base_num_features = 32\
