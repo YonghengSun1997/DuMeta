@@ -8,7 +8,7 @@ This repository is for our ICCV 2023 paper '[Dual Meta-Learning with Longitudina
 
 ![](./picture/DuMeta.PNG)
 
-## You can follow the steps below to pretrain and finetune your model on your data with DuMeta
+## A. You can follow the steps below to pretrain and finetune your model on your data with DuMeta
 
 ## 1 Preparation
 
@@ -35,7 +35,7 @@ python main.py
 
 ### Load model parameters of step 2.1, and run baseline as step 1.3.
 
-## Or you can load our pretrained model and finutune on your own data.
+## B. Or you can load our pretrained model and finutune on your own data.
 1. You can download the pretrained model via https://drive.google.com/file/d/1t6nCM376LBVHXjktr52k8KeDwuZZTLy2/view?usp=drive_link.
 2. Process your data as required by nnUNetv1 using below command:\
    &emsp;nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
