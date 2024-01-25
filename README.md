@@ -44,8 +44,10 @@ python main.py
    nnUNet_plan_and_preprocess -t XXX --verify_dataset_integrity
    ```
 4. then change nnUNetPlansv2.1_plans_3D.pkl to change patch size of input:\
-    &emsp python change_plans.py
-5. Replace nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
+   ```
+   python change_plans.py
+   ```
+6. Replace nnUNetTrainerV2.initialize of nnUNetTrainerV2.py as follows:\
 def initialize_network(self):\
     &emsp; num_input_channels = 1\
     &emsp; base_num_features = 32\
@@ -73,9 +75,10 @@ def initialize_network(self):\
               &emsp;     for i, param in enumerate(network.parameters()):\
                &emsp;&emsp;     if i >= 40 and i <= 87:  # 前面一些参数冻结\
                      &emsp;&emsp;&emsp;   param.requires_grad = False
-6. finetune your model using below command:\
+7. finetune your model using below command:\
+   ```
    nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD (additional options)
-
+   ```
 
 ## Acknowledgement
 The code is based on nnUNetv1 (https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1).
